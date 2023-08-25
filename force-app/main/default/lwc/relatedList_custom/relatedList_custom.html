@@ -1,0 +1,44 @@
+<template>
+    <lightning-layout if:true={isUserHaveAccess} class="slds-m-top_x-small">
+        <div class="componentStype">
+            <article class="slds-card lightning-card">
+                <div class="slds-card__header slds-grid slds-theme_shade styleHeaderFooter">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate" style="padding: 1rem;">
+                        <div class="slds-media__figure">
+                            <lightning-icon icon-name={state.iconName} size="small"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <a class="slds-card__header-link" onclick={handleGotoRelatedList}>{state.titleRelatedList}</a>
+                            </h2>
+                        </div>
+                        <div class="slds-no-flex">
+                            <lightning-button class="slds-m-horizontal_xx-small" label="New" onclick={handleCreateRecord}></lightning-button>
+                            <!-- <lightning-button if:true={isMoreThanZero} class="slds-m-horizontal_xx-small" label="Refresh List" onclick={onRefresh}></lightning-button> -->
+                        </div>
+                    </header>
+                </div>
+                <div class="lineElement"></div>
+                <div if:true={isMoreThanZero}>
+                    <div class="">
+                        <c-datatable_custom-datatable
+                                class="related-list"
+                                columns={state.columns}
+                                data={state.records}
+                                sorted-direction={state.sortedDirection}
+                                sorted-by={state.sortedBy}
+                                key-field="Id"
+                                min-column-width="50px"
+                                hide-checkbox-column="true"
+                                onsort={hadleSortValues}
+                                onrowaction={handleRowAction}>
+                        </c-datatable_custom-datatable>
+                    </div>
+                    <footer class="slds-card__footer styleHeaderFooter">
+                        <a onclick={handleGotoRelatedList}>View All</a>
+                    </footer>
+                </div>
+            </article>
+        </div>
+    </lightning-layout>
+</template>

@@ -13,5 +13,10 @@ export default class Modal_cmp extends LightningModal {
             detail: id
         });
         this.dispatchEvent(selectEvent);
+        this.closeModal();
+    }
+
+    closeModal() {
+        this.close('success');
     }
 }

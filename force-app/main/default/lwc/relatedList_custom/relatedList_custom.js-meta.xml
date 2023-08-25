@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>relatedList_custom</masterLabel>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property label="Enter API name of the Related object" description="Example: KYC__c Or Account" name="sobjectApiName" type="String"/>
+            <property label="Enter Field Set Name of the Object" description="Example: Field Set on Account" name="fieldSetName" type="String"/>
+            <property label="Enter amount of record in Related List" description="Example: 6" name="numberOfRecords" type="Integer" default="6"/>
+            <property label="Enter field for sorting default" description="Example: Commercial__c or Name" name="sortedBy" type="String" default="Name"/>
+            <property label="Enter sorting rule like ASC or DESC" description="Example: asc or desc" name="sortedDirection" type="String" default="asc"/>
+            <property label="Enter Field Set Name of the Fields that should be Replaced to IMG. IMPORTANT: only Formula Fields"
+                    description="Example: Field Set on Account" name="fildsMoveFromFormulaToImg" type="String"/>
+            <property label="Role Hierarchy Mode" description="Checked if needed role hierarchy" name="isNeedHierarchy" type="Boolean" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

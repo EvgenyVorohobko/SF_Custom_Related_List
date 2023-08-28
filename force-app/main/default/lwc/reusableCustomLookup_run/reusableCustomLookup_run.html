@@ -1,6 +1,18 @@
 <template>
-    <c-reusable-custom-lookup
-                object-api-name={objectApiName}
-                object-lookup-field={objectLookupField}>
-    </c-reusable-custom-lookup>
+    <div class="slds-p-around_medium slds-theme_default">
+        <h2>Lookup / MultyLookup fields</h2>
+        <div class="slds-p-around_medium">
+            <c-reusable-custom-lookup
+                    object-api-name={objectApiName}
+                    object-lookup-field={objectLookupField}>
+            </c-reusable-custom-lookup>
+        </div>
+        <div class="slds-p-around_medium">
+            <c-reusable-custom-multy-lookup
+                    object-api-name={objectApiName}
+                    object-lookup-field={objectLookupField}
+                    field={field}>
+            </c-reusable-custom-multy-lookup>
+        </div>
+    </div>
 </template>

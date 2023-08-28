@@ -1,0 +1,16 @@
+<template>
+    <template for:each={items} for:item="item">
+        <lightning-pill
+                    key={item.index}
+                    label={item.label}
+                    href={item.src}
+                    data-id={item.id}
+                    onremove={handleItemRemove}>
+        </lightning-pill>
+    </template>
+    <c-reusable-custom-lookup
+                object-api-name={objectApiName}
+                object-lookup-field={objectLookupField}
+                onselect={handleItemSelect}>
+    </c-reusable-custom-lookup>
+</template>

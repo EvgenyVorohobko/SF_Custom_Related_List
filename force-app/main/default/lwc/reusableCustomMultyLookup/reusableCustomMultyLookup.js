@@ -1,6 +1,6 @@
 import { LightningElement, track, api } from 'lwc';
 import getRecordValues from "@salesforce/apex/CustomLookupController.getRecordValues";
-
+import { Utils } from 'c/utils';
 export default class ReusableCustomMultyLookup extends LightningElement {
     @api objectApiName;
     @api objectLookupField;
@@ -16,6 +16,11 @@ export default class ReusableCustomMultyLookup extends LightningElement {
     handleItemSelect(event) {
         const id = event.detail;
         if (id !== null) {
+            if (this.items.filter(item => item.id === id)[0] !== undefined) {
+                Utils.show('Error', 'You try to choose the same record!', Utils.TYPE.ERROR);
+                this.handleReset();
+                return;
+            }
             getRecordValues({ recordId : id, field: this.field })
             .then(response => {
                 const data = response[0];
@@ -27,7 +32,7 @@ export default class ReusableCustomMultyLookup extends LightningElement {
                 this.handleReset();
             })
             .catch(error => {
-                console.log(error);
+                Utils.show('Error choose record!', error.body.message, Utils.TYPE.ERROR);
             });
         }
     }

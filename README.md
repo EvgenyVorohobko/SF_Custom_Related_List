@@ -19,3 +19,5 @@ Personal repository to work with different task, which give ability to work easy
     ![Schema components](image-1.png)
 
 3. [Reusable Custom Lookup component](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/reusableCustomLookup).
+
+4. [Reusable Custom MultiLookup component](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/reusableCustomMultyLookup).

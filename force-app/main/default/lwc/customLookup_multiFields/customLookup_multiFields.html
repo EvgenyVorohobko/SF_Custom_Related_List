@@ -1,0 +1,40 @@
+<template>
+    <div class="content slds-p-around_medium slds-theme_default" onmouseleave={toggleResult}>
+        <div if:true={items}>
+            <template for:each={items} for:item="item">
+                <lightning-pill
+                            key={item.Id}
+                            label={item.label}
+                            href={item.src}
+                            data-id={item.Id}
+                            onremove={handleItemRemove}>
+                </lightning-pill>
+            </template>
+        </div>
+
+        <h2 class="slds-p-around_x-small slds-panel__header-title slds-text-heading_small slds-truncate" title={label}>{label}</h2>
+        <div class="content">
+            <lightning-input type="search" data-id="userinput" name="searchText"
+                            value={searchKey} variant="label-hidden"
+                            placeholder={placeholder} onchange={handleKeyChange}
+                            onclick={toggleResult}>
+            </lightning-input>
+
+            <div if:true={searchResults} class="searchResults slds-dropdown_fluid slds-dropdown slds-dropdown_left slds-dropdown_length-5 slds-is-open">
+                <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                    <template for:each={searchResults} for:item="searchResult">
+                        <li key={searchResult.Id} data-value={searchResult.Id}
+                            role="presentation" onclick={selectSearchResult}
+                            class="slds-dropdown__item slds-p-around_x-small">
+                            <span style="pointer-events: none;" class="slds-media__body">
+                                <span class="slds-truncate slds-listbox__option-text_entity" title={searchResult.label}>
+                                    {searchResult.label}
+                                </span>
+                            </span>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>

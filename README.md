@@ -23,3 +23,7 @@ Personal repository to work with different task, which give ability to work easy
 4. [Reusable Custom MultiLookup component](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/reusableCustomMultyLookup).
 
 5. [Reusable Custom MultiLookup component with SOSL (Search in different fields on object)](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/customLookup_multiFields).
+
+6. [Datatable with color of columns](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/datatableColor).
+
+    ![Example](image-2.png)

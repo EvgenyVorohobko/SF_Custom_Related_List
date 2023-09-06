@@ -34,8 +34,12 @@ public with sharing class CustomRelatedListController {
 
         String relatedFieldApiName = getParentRelationshipName(parentObjectName, relationObjectName);
         Map<String, List<String>> allFieldsValues = getFieldsFromFSByObjectName(relationObjectName, fieldSetName);
-        List<String> replaceApiNames = replaceFieldSetName != null ? getFieldsFromFSByObjectName(relationObjectName, replaceFieldSetName).get(API_NAMES) : null;
-        List<Sobject> resultRecords = getRecords(allFieldsValues.get(API_NAMES), relationObjectName, relatedFieldApiName, numberOfRecords, recordId, sortedByField);
+        List<String> replaceApiNames = replaceFieldSetName != null
+                        ? getFieldsFromFSByObjectName(relationObjectName, replaceFieldSetName).get(API_NAMES) : null;
+        List<Sobject> resultRecords = getRecords(
+                                allFieldsValues.get(API_NAMES), relationObjectName,
+                                relatedFieldApiName, numberOfRecords, recordId, sortedByField
+        );
 
         Map<String, Object> responseMap = new Map<String, Object>();
         responseMap.put('recordValues', resultRecords);
@@ -57,7 +61,6 @@ public with sharing class CustomRelatedListController {
 
         String query = 'SELECT ' + fields + ' FROM ' + relationObjectName + ' WHERE '
                         + relatedFieldApiName + '= :recordId ORDER BY ' + orderBy + ' LIMIT :numberOfRecords';
-                        System.debug(query);
         return Database.query(String.escapeSingleQuotes(query));
 	}
 
@@ -75,11 +78,11 @@ public with sharing class CustomRelatedListController {
     }
 
     private static Map<String, List<String>> getFieldsFromFSByObjectName(String objectName, String fieldSetName) {
-        Schema.FieldSet inverventionFrameworkOppsFS = Schema.getGlobalDescribe().get(objectName).getDescribe().fieldSets.getMap().get(fieldSetName);
+        Schema.FieldSet fieldSetMembers = Schema.getGlobalDescribe().get(objectName).getDescribe().fieldSets.getMap().get(fieldSetName);
         List<String> fieldsToSelect = new List<String>();
         List<String> apisToSelect = new List<String>();
         List<String> typeToSelect = new List<String>();
-        for (Schema.FieldSetMember f : inverventionFrameworkOppsFS.getFields()) {
+        for (Schema.FieldSetMember f : fieldSetMembers.getFields()) {
             fieldsToSelect.add(f.getFieldPath());
             apisToSelect.add(f.getLabel());
             typeToSelect.add(String.valueOf(f.getType()));

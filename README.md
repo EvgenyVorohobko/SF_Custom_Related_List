@@ -27,3 +27,5 @@ Personal repository to work with different task, which give ability to work easy
 6. [Datatable with color of columns](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/datatableColor).
 
     ![Example](image-2.png)
+
+7. [Example of class that can work with Report and manipulate it](https://github.com/EvgenyVorohobko/Salesforce_Components/blob/main/force-app/main/default/classes/ReportClass.cls).

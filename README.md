@@ -29,3 +29,46 @@ Personal repository to work with different task, which give ability to work easy
     ![Example](image-2.png)
 
 7. [Example of class that can work with Report and manipulate it](https://github.com/EvgenyVorohobko/Salesforce_Components/blob/main/force-app/main/default/classes/ReportClass.cls).
+
+8. [Example of code that can call Flow]
+    1. The following Apex code calls the above Flow and outputs to the Debug log.
+        ```
+        // Call the Flow
+        Map<String, Object> params = new Map<String, Object>();
+        Flow.Interview.ReturnHelloWorld helloWorldFlow = new Flow.Interview.ReturnHelloWorld(params);
+        helloWorldFlow.start();
+
+        // Obtain the results
+        String returnValue = (String) helloWorldFlow.getVariableValue('ReturnValue');
+        System.debug('Flow returned ' + returnValue);
+        ```
+    2. The following code invokes this Flow, by passing the X and Y values in through the Map.
+        ```
+        // Call the Flow
+        Map<String, Object> params = new Map<String, Object>();
+        params.put('X', 10);
+        params.put('Y', 5);
+        Flow.Interview.Calc calcFlow = new Flow.Interview.Calc(params);
+        calcFlow.start();
+
+        // Obtain the results
+        Double returnValue = (Double) calcFlow.getVariableValue('ReturnValue');
+        System.debug('Flow returned ' + returnValue);
+        ```
+    3. This code constructs a list of Accounts, passes them to the Flow and retrieves the updated list after.
+        ```
+        // List of records
+        List<Account> accounts = new List<Account>{new Account(Name = 'Account A'), new Account(Name = 'Account B')};
+
+        // Call the Flow
+        Map<String, Object> params = new Map<String, Object>();
+        params.put('Accounts', accounts);
+        Flow.Interview.RecordUpdater recordUpdaterFlow = new Flow.Interview.RecordUpdater(params);
+        recordUpdaterFlow.start();
+
+        // Obtain results
+        List<Account> updatedAccounts = (List<Account>) recordUpdaterFlow.getVariableValue('Accounts');
+        for(Account account : updatedAccounts) {
+            System.debug(account.Name + ' ' + account.Description);
+        }
+        ```

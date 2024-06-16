@@ -4,7 +4,11 @@ Personal repository to work with different task, which give ability to work easy
 
 ## Components
 1. ["Standard" modal pop-up element](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/modal_cmp).
-2. [Custom Related List with Role Hierarchy](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/relatedList_custom).
+
+    > [!IMPORTANT]
+    Will work if "Use Lightning Web Security for Lightning web components and Aura components" is activated (Session Settings -> Lightning Web Security)
+   
+3. [Custom Related List with Role Hierarchy](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/relatedList_custom).
     > [!NOTE]
     Dynamically changeable custom Related List. Customers can use the Lightning App Builder for this. Use an example on the Account Record Page with the Opportunity Related List.
     You can see description of each field on [relatedList_custom.js-meta.xml](https://github.com/EvgenyVorohobko/Salesforce_Components/blob/main/force-app/main/default/lwc/relatedList_custom/relatedList_custom.js-meta.xml)
@@ -18,19 +22,19 @@ Personal repository to work with different task, which give ability to work easy
 
     ![Schema components](image-1.png)
 
-3. [Reusable Custom Lookup component](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/reusableCustomLookup).
+4. [Reusable Custom Lookup component](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/reusableCustomLookup).
 
-4. [Reusable Custom MultiLookup component](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/reusableCustomMultyLookup).
+5. [Reusable Custom MultiLookup component](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/reusableCustomMultyLookup).
 
-5. [Reusable Custom MultiLookup component with SOSL (Search in different fields on object)](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/customLookup_multiFields).
+6. [Reusable Custom MultiLookup component with SOSL (Search in different fields on object)](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/customLookup_multiFields).
 
-6. [Datatable with color of columns](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/datatableColor).
+7. [Datatable with color of columns](https://github.com/EvgenyVorohobko/Salesforce_Components/tree/main/force-app/main/default/lwc/datatableColor).
 
     ![Example](image-2.png)
 
-7. [Example of class that can work with Report and manipulate it](https://github.com/EvgenyVorohobko/Salesforce_Components/blob/main/force-app/main/default/classes/ReportClass.cls).
+8. [Example of class that can work with Report and manipulate it](https://github.com/EvgenyVorohobko/Salesforce_Components/blob/main/force-app/main/default/classes/ReportClass.cls).
 
-8. [Example of code that can call Flow]
+9. [Example of code that can call Flow]
     1. The following Apex code calls the above Flow and outputs to the Debug log.
         ```
         // Call the Flow
